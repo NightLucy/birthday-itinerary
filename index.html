@@ -118,9 +118,12 @@
     }
 
     .hero-bunny {
+      display: block;
       width: clamp(82px, 22vw, 138px);
+      height: auto;
       aspect-ratio: 5 / 6;
       align-self: start;
+      overflow: visible;
       animation: floatBob 2.8s ease-in-out infinite;
       filter: drop-shadow(0 12px 14px rgba(247, 95, 159, 0.14));
     }
@@ -470,15 +473,18 @@
     .floaters {
       position: fixed;
       inset: 0;
-      z-index: 1;
+      z-index: 20;
       pointer-events: none;
       overflow: hidden;
     }
 
     .floater {
+      display: block;
       position: absolute;
       bottom: -86px;
       width: 54px;
+      height: auto;
+      overflow: visible;
       opacity: 0;
       animation: floatUp 15s linear infinite;
       filter: drop-shadow(0 8px 9px rgba(247, 95, 159, 0.12));
@@ -582,16 +588,57 @@
         display: grid;
         grid-template-columns: 1fr;
       }
+
+      .floater {
+        width: 42px;
+      }
+
+      .floater:nth-child(1) { left: 1%; }
+      .floater:nth-child(2) { left: 13%; }
+      .floater:nth-child(3) { right: 1%; }
+      .floater:nth-child(4) { right: 13%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+      }
+
+      .hero-bunny,
+      .tab-panel {
+        animation: none !important;
+      }
+
+      .floater {
+        animation: none !important;
+        opacity: 0.22 !important;
+        transform: none !important;
+      }
+
+      .floater:nth-child(1) {
+        left: 2%;
+        bottom: 18px;
+      }
+
+      .floater:nth-child(2) {
+        left: 14%;
+        bottom: 72px;
+      }
+
+      .floater:nth-child(3) {
+        right: 2%;
+        bottom: 18px;
+      }
+
+      .floater:nth-child(4) {
+        right: 14%;
+        bottom: 72px;
       }
     }
   </style>
@@ -847,7 +894,7 @@
         <div class="choice" style="--choice-color: ${colors[index % colors.length]}">
           <strong>${choice.name}</strong>
           <span>${choice.description}</span>
-          <a href="${choice.url}" target="_blank" rel="noopener noreferrer">Open Lemon8</a>
+          <a href="${choice.url}" target="_blank" rel="noopener noreferrer">Open link</a>
         </div>
       `).join("");
 
