@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4f8">
+  <title>Our Getaway: 28-29 Apr</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff7fb;
+      --bg-dot: #ffe0ec;
+      --paper: #ffffff;
+      --paper-soft: #fffafd;
+      --ink: #453b43;
+      --muted: #766a73;
+      --pink: #f75f9f;
+      --pink-soft: #ffd2e4;
+      --peach: #ffd8bc;
+      --mint: #c9f3e6;
+      --sky: #cdeeff;
+      --lemon: #fff0a8;
+      --lavender: #e8ddff;
+      --line: #ffc3d8;
+      --shadow: 0 16px 44px rgba(190, 78, 128, 0.14);
+      --radius: 8px;
+      --bunny-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 100 120'%3E%3Cpath d='M30 50Q25 10 35 10Q45 10 40 50Z' fill='white' stroke='%23f75f9f' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M70 50Q75 10 65 10Q55 10 60 50Z' fill='white' stroke='%23f75f9f' stroke-width='4' stroke-linejoin='round'/%3E%3Cellipse cx='50' cy='75' rx='40' ry='35' fill='white' stroke='%23f75f9f' stroke-width='4'/%3E%3Ccircle cx='35' cy='70' r='4' fill='%23453b43'/%3E%3Ccircle cx='65' cy='70' r='4' fill='%23453b43'/%3E%3Cline x1='46' y1='81' x2='54' y2='89' stroke='%23453b43' stroke-width='4' stroke-linecap='round'/%3E%3Cline x1='54' y1='81' x2='46' y2='89' stroke='%23453b43' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, auto;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 1px 1px, var(--bg-dot) 1.5px, transparent 0) 0 0 / 22px 22px,
+        linear-gradient(160deg, #fff9fc 0%, var(--bg) 45%, #f2fbff 100%);
+      color: var(--ink);
+      font-family: Quicksand, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+    }
+
+    @media (pointer: fine) {
+      body,
+      a,
+      button,
+      summary {
+        cursor: var(--bunny-cursor);
+      }
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(100%, 720px);
+      margin: 0 auto;
+      padding: 20px 18px 42px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero {
+      min-height: 210px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 28px 0 18px;
+      position: relative;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 10px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--pink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 24px rgba(247, 95, 159, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--pink);
+      font-size: clamp(2rem, 9vw, 4.35rem);
+      line-height: 0.94;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow: 2px 2px 0 #fff;
+    }
+
+    .subtitle {
+      max-width: 36rem;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-bunny {
+      width: clamp(82px, 22vw, 138px);
+      aspect-ratio: 5 / 6;
+      align-self: start;
+      animation: floatBob 2.8s ease-in-out infinite;
+      filter: drop-shadow(0 12px 14px rgba(247, 95, 159, 0.14));
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .stat {
+      min-height: 78px;
+      padding: 12px;
+      border: 1px solid rgba(255, 195, 216, 0.95);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--pink);
+      font-size: 1.05rem;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      padding: 10px 0;
+      margin: 0 -2px 14px;
+      backdrop-filter: blur(16px);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 6px;
+      border: 1px solid rgba(255, 195, 216, 0.95);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 28px rgba(190, 78, 128, 0.12);
+    }
+
+    .tab-btn {
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: #bd5a86;
+      font-weight: 900;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-1px);
+      background: #fff5fa;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--pink), #ff8dbf);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(247, 95, 159, 0.26);
+    }
+
+    .notice {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+      border: 1px solid #bfeadc;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(201, 243, 230, 0.9), rgba(255, 255, 255, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .notice strong {
+      color: #2d8268;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #4f6b64;
+      font-size: 0.92rem;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .quick-link,
+    .action {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(190, 78, 128, 0.1);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .quick-link:hover,
+    .action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(190, 78, 128, 0.16);
+    }
+
+    .quick-link:nth-child(1),
+    .action[data-tone="sky"] {
+      background: var(--sky);
+      border-color: #97d7f6;
+      color: #27617b;
+    }
+
+    .quick-link:nth-child(2),
+    .action[data-tone="mint"] {
+      background: var(--mint);
+      border-color: #98dec9;
+      color: #27705b;
+    }
+
+    .quick-link:nth-child(3),
+    .action[data-tone="lemon"] {
+      background: var(--lemon);
+      border-color: #e5d06c;
+      color: #796823;
+    }
+
+    .tab-panel {
+      display: none;
+      animation: riseIn 260ms ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 4px 0 10px;
+    }
+
+    .day-header h2 {
+      margin: 0;
+      color: var(--pink);
+      font-size: 1.32rem;
+      letter-spacing: 0;
+    }
+
+    .day-header p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .expand-btn {
+      flex: 0 0 auto;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--pink);
+      padding: 7px 10px;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .stop {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(255, 195, 216, 0.95);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stop::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: var(--stop-color, var(--pink-soft));
+    }
+
+    .stop-time {
+      color: #ad527d;
+      font-size: 0.88rem;
+      font-weight: 950;
+      line-height: 1.25;
+    }
+
+    .stop-body {
+      min-width: 0;
+    }
+
+    .stop-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .stop-note {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.91rem;
+      font-weight: 650;
+    }
+
+    .stop-note em {
+      color: #776c75;
+      font-style: normal;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    details.picker {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper-soft);
+      overflow: hidden;
+    }
+
+    details.picker[open] {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    .picker summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 44px;
+      padding: 10px 12px;
+      color: #bd5a86;
+      font-weight: 950;
+      list-style: none;
+    }
+
+    .picker summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .picker summary::after {
+      content: "+";
+      width: 24px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--pink-soft);
+      color: #9f3f70;
+      font-weight: 950;
+    }
+
+    .picker[open] summary::after {
+      content: "-";
+    }
+
+    .choices {
+      display: grid;
+      gap: 8px;
+      padding: 0 10px 10px;
+    }
+
+    .choice {
+      display: grid;
+      gap: 4px;
+      padding: 10px;
+      border-radius: var(--radius);
+      background: #fff;
+      border-left: 5px solid var(--choice-color, var(--peach));
+    }
+
+    .choice strong {
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+
+    .choice span {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 650;
+    }
+
+    .choice a {
+      width: fit-content;
+      margin-top: 4px;
+      color: var(--pink);
+      font-size: 0.82rem;
+      font-weight: 950;
+    }
+
+    .footer-note {
+      margin: 22px 0 0;
+      color: #9a6a81;
+      font-size: 0.86rem;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .floaters {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floater {
+      position: absolute;
+      bottom: -86px;
+      width: 54px;
+      opacity: 0;
+      animation: floatUp 15s linear infinite;
+      filter: drop-shadow(0 8px 9px rgba(247, 95, 159, 0.12));
+    }
+
+    .floater:nth-child(1) { left: 2%; animation-delay: 0s; }
+    .floater:nth-child(2) { left: 10%; animation-delay: 5s; animation-duration: 17s; }
+    .floater:nth-child(3) { right: 4%; animation-delay: 2s; animation-duration: 16s; }
+    .floater:nth-child(4) { right: 12%; animation-delay: 8s; animation-duration: 18s; }
+
+    .page > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes floatBob {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-9px) rotate(2deg);
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(0) rotate(-12deg);
+      }
+
+      12%,
+      86% {
+        opacity: 0.36;
+      }
+
+      50% {
+        transform: translateY(-50vh) rotate(9deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(-8deg);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 14px 12px 34px;
+      }
+
+      .hero {
+        min-height: 184px;
+        grid-template-columns: minmax(0, 1fr) 74px;
+        padding-top: 20px;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+      }
+
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: auto;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .day-header {
+        align-items: start;
+      }
+
+      .stop {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .stop-time {
+        font-size: 0.83rem;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute; width:0; height:0; overflow:hidden;">
+    <symbol id="icon-bunny" viewBox="0 0 100 120">
+      <path d="M30 50Q25 10 35 10Q45 10 40 50Z" fill="#fff" stroke="#f75f9f" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M70 50Q75 10 65 10Q55 10 60 50Z" fill="#fff" stroke="#f75f9f" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="50" cy="75" rx="40" ry="35" fill="#fff" stroke="#f75f9f" stroke-width="4"/>
+      <circle cx="35" cy="70" r="4" fill="#453b43"/>
+      <circle cx="65" cy="70" r="4" fill="#453b43"/>
+      <line x1="46" y1="81" x2="54" y2="89" stroke="#453b43" stroke-width="4" stroke-linecap="round"/>
+      <line x1="54" y1="81" x2="46" y2="89" stroke="#453b43" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon-pup" viewBox="0 0 120 100">
+      <ellipse cx="60" cy="50" rx="45" ry="35" fill="#fff" stroke="#f75f9f" stroke-width="4"/>
+      <circle cx="18" cy="50" r="8" fill="#453b43"/>
+      <ellipse cx="80" cy="65" rx="15" ry="30" fill="#453b43" transform="rotate(-20 80 65)"/>
+      <path d="M45 35Q50 30 55 35" stroke="#453b43" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M28 65Q35 75 45 65" stroke="#453b43" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="floaters" aria-hidden="true">
+    <svg class="floater" viewBox="0 0 100 120"><use href="#icon-bunny"></use></svg>
+    <svg class="floater" viewBox="0 0 120 100"><use href="#icon-pup"></use></svg>
+    <svg class="floater" viewBox="0 0 100 120"><use href="#icon-bunny"></use></svg>
+    <svg class="floater" viewBox="0 0 120 100"><use href="#icon-pup"></use></svg>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Sentosa staycation + birthday date</p>
+        <h1>28-29 April</h1>
+        <p class="subtitle">A tiny pocket itinerary for Princess Pinxuan, with bookings, maps, lunch picks, and cozy little plans in one place.</p>
+      </div>
+
+      <svg class="hero-bunny" viewBox="0 0 100 120" aria-hidden="true">
+        <use href="#icon-bunny"></use>
+      </svg>
+    </header>
+
+    <section class="mini-stats" aria-label="Trip summary">
+      <div class="stat">
+        <strong>2 days</strong>
+        <span>Staycation time</span>
+      </div>
+      <div class="stat">
+        <strong>1 birthday</strong>
+        <span>Dinner at Arbora</span>
+      </div>
+      <div class="stat">
+        <strong>Many treats</strong>
+        <span>Food, art, coffee</span>
+      </div>
+    </section>
+
+    <nav class="nav-wrap" aria-label="Trip days">
+      <div class="tabs" role="tablist" aria-label="Trip itinerary days">
+        <button class="tab-btn active" type="button" data-tab="day1" id="tab-day1" role="tab" aria-selected="true" aria-controls="day1">
+          Day 1 · 28 Apr
+        </button>
+        <button class="tab-btn" type="button" data-tab="day2" id="tab-day2" role="tab" aria-selected="false" aria-controls="day2">
+          Day 2 · 29 Apr
+        </button>
+      </div>
+    </nav>
+
+    <section class="notice" aria-label="Free admission guide">
+      <strong>Free admission guide</strong>
+      <p><strong>By car:</strong> Flash the hotel confirmation at Sentosa gantry Lane 1 or 2.</p>
+      <p><strong>By monorail:</strong> Visit the Sentosa Express ticketing counter at VivoCity, Lobby L, Level 3, and show the hotel confirmation for a free QR ride in.</p>
+    </section>
+
+    <section class="quick-links" aria-label="Main bookings">
+      <a class="quick-link" href="https://drive.google.com/file/d/1n2W6kG50Z7jNM3JhuuZdglEPlw5FPwU2/view?usp=sharing" target="_blank" rel="noopener noreferrer">Hotel PDF</a>
+      <a class="quick-link" href="https://drive.google.com/file/d/16Z90gWO6IV6e1srQL7j5tuoDbdQwsZHi/view?usp=sharing" target="_blank" rel="noopener noreferrer">Cable car + dinner</a>
+      <a class="quick-link" href="https://drive.google.com/file/d/1n5ewvWS9SpkaGtTs8I1nDsFTlLAgKi0B/view?usp=sharing" target="_blank" rel="noopener noreferrer">Appointment PDF</a>
+    </section>
+
+    <section id="day1" class="tab-panel active" role="tabpanel" aria-labelledby="tab-day1"></section>
+    <section id="day2" class="tab-panel" role="tabpanel" aria-labelledby="tab-day2"></section>
+
+    <p class="footer-note">Made for a soft little birthday adventure.</p>
+  </main>
+
+  <script>
+    const colors = ["#ffd2e4", "#c9f3e6", "#cdeeff", "#fff0a8", "#e8ddff", "#ffd8bc"];
+
+    const itinerary = {
+      day1: {
+        title: "Tuesday, 28 April",
+        note: "Sentosa, aquarium, cable car, and birthday dinner.",
+        stops: [
+          {
+            time: "10:00 AM",
+            title: "Pick up Princess Pinxuan",
+            note: "Start the day gently, then head toward Sentosa."
+          },
+          {
+            time: "10:30 AM",
+            title: "Village Hotel Sentosa",
+            note: "Drive in, flash the hotel confirmation at the gantry, and park at the hotel.",
+            actions: [
+              { label: "Hotel PDF", url: "https://drive.google.com/file/d/1n2W6kG50Z7jNM3JhuuZdglEPlw5FPwU2/view?usp=sharing", tone: "sky" },
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Village%20Hotel%20Sentosa%20Singapore", tone: "mint" }
+            ]
+          },
+          {
+            time: "11:00 AM",
+            title: "Sharks and stingrays",
+            note: "Take the monorail to Resorts World station. Open Ocean Discovery Presentation is at 1:15 PM.",
+            actions: [
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Resorts%20World%20Sentosa%20Singapore", tone: "mint" }
+            ]
+          },
+          {
+            time: "2:00 PM",
+            title: "Lunch at VivoCity",
+            note: "Take the free monorail out and pick the mood.",
+            picker: {
+              label: "Lunch options",
+              choices: [
+                {
+                  name: "Surrey Hills Grocer",
+                  description: "Australian cafe vibes, clam pasta, and pizza.",
+                  url: "https://www.lemon8-app.com/discover/surrey%20hills%20grocer%20vivocity?region=sg"
+                },
+                {
+                  name: "Mamma Mia! Trattoria",
+                  description: "Italian comfort, including truffle mushroom risotto.",
+                  url: "https://www.lemon8-app.com/experience/mamma-mia-trattoria-e-caff%C3%A8-vivocity?region=sg"
+                },
+                {
+                  name: "The Providore",
+                  description: "Chic glasshouse cafe with brunch plates and coffee.",
+                  url: "https://www.lemon8-app.com/discover/the%20providore%20vivocity?region=sg"
+                }
+              ]
+            },
+            actions: [
+              { label: "VivoCity map", url: "https://www.google.com/maps/search/?api=1&query=VivoCity%20Singapore", tone: "mint" }
+            ]
+          },
+          {
+            time: "3:30 PM",
+            title: "Check in and rest",
+            note: "Head back to Village Hotel Sentosa via monorail and settle in."
+          },
+          {
+            time: "5:00 PM",
+            title: "HarbourFront Cable Car Station",
+            note: "Drive to HarbourFront Centre. The station is inside HarbourFront Tower Two.",
+            actions: [
+              { label: "Booking PDF", url: "https://drive.google.com/file/d/16Z90gWO6IV6e1srQL7j5tuoDbdQwsZHi/view?usp=sharing", tone: "sky" },
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=HarbourFront%20Cable%20Car%20Station", tone: "mint" }
+            ]
+          },
+          {
+            time: "5:30 PM",
+            title: "Birthday dinner at Arbora",
+            note: "Dinner at Mount Faber Peak after the free cable car ride up.",
+            actions: [
+              { label: "Lemon8", url: "https://www.lemon8-app.com/discover/arbora%20mount%20faber?region=sg", tone: "lemon" },
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Arbora%20Mount%20Faber%20Peak", tone: "mint" }
+            ]
+          },
+          {
+            time: "8:00 PM",
+            title: "Back to the hotel",
+            note: "Drive back to Village Hotel Sentosa and sleep in peace."
+          }
+        ]
+      },
+      day2: {
+        title: "Wednesday, 29 April",
+        note: "Slow check-out, calligraphy, coffee, appointment, and dinner.",
+        stops: [
+          {
+            time: "Before 12:00 PM",
+            title: "Late check-out",
+            note: "Sleep in a little and keep the morning soft."
+          },
+          {
+            time: "12:30 PM",
+            title: "Lunch near Bras Basah",
+            note: "A convenient stop before calligraphy.",
+            picker: {
+              label: "Lunch options",
+              choices: [
+                {
+                  name: "HARU-HARU Mentaiko",
+                  description: "Bras Basah Complex. Japanese katsu and mentaiko goodness.",
+                  url: "https://www.lemon8-app.com/discover/haru%20haru%20mentaiko?region=sg"
+                },
+                {
+                  name: "TANOKE",
+                  description: "Purvis Street. Wagyu donburi and small bites.",
+                  url: "https://www.lemon8-app.com/discover/tanoke%20purvis?region=sg"
+                },
+                {
+                  name: "Dough at CHIJMES",
+                  description: "Korean-style cafe with pastries and mains.",
+                  url: "https://www.lemon8-app.com/@ujimtcha/7303069170525143554?region=sg"
+                }
+              ]
+            },
+            actions: [
+              { label: "Bras Basah map", url: "https://www.google.com/maps/search/?api=1&query=Bras%20Basah%20Singapore", tone: "mint" }
+            ]
+          },
+          {
+            time: "2:00 - 3:30 PM",
+            title: "Art of Brush calligraphy",
+            note: "Show the Pelago booking. Address: Blk 261 Waterloo Street #01-20, Singapore 180261.",
+            actions: [
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Blk%20261%20Waterloo%20Street%20%2301-20%20Singapore%20180261", tone: "mint" }
+            ]
+          },
+          {
+            time: "3:45 PM",
+            title: "Dessert or coffee run",
+            note: "Rise Bakehouse at TripleOne Somerset, optional depending on how fast we leave.",
+            actions: [
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Rise%20Bakehouse%20TripleOne%20Somerset", tone: "mint" }
+            ]
+          },
+          {
+            time: "4:40 - 5:00 PM",
+            title: "Curious Creatures appointment",
+            note: "Address: 2 Orchard Turn, B3-37, Singapore 238801.",
+            actions: [
+              { label: "Booking PDF", url: "https://drive.google.com/file/d/1n5ewvWS9SpkaGtTs8I1nDsFTlLAgKi0B/view?usp=sharing", tone: "sky" },
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Curious%20Creatures%202%20Orchard%20Turn%20B3-37%20Singapore", tone: "mint" }
+            ]
+          },
+          {
+            time: "5:00 PM",
+            title: "Walk to dinner",
+            note: "Sun with Moon Japanese Dining and Cafe at 5:30 PM. 501 Orchard Road, #03-15 Wheelock Place, about 11 minutes away.",
+            actions: [
+              { label: "Dinner menu", url: "https://sunwithmoon.com.sg/wp-content/uploads/2025/07/2025-SWM-Dinner-Menu.pdf", tone: "sky" },
+              { label: "Map", url: "https://www.google.com/maps/search/?api=1&query=Sun%20with%20Moon%20Japanese%20Dining%20Wheelock%20Place", tone: "mint" }
+            ]
+          },
+          {
+            time: "7:00 PM",
+            title: "Send the birthday girl home",
+            note: "Final stop: home, happy, and fed."
+          }
+        ]
+      }
+    };
+
+    const tabButtons = [...document.querySelectorAll(".tab-btn")];
+    const tabPanels = [...document.querySelectorAll(".tab-panel")];
+
+    function linkButton(action) {
+      return `
+        <a class="action" data-tone="${action.tone || "sky"}" href="${action.url}" target="_blank" rel="noopener noreferrer">
+          ${action.label}
+        </a>
+      `;
+    }
+
+    function lunchPicker(picker) {
+      const choices = picker.choices.map((choice, index) => `
+        <div class="choice" style="--choice-color: ${colors[index % colors.length]}">
+          <strong>${choice.name}</strong>
+          <span>${choice.description}</span>
+          <a href="${choice.url}" target="_blank" rel="noopener noreferrer">Open Lemon8</a>
+        </div>
+      `).join("");
+
+      return `
+        <details class="picker">
+          <summary>${picker.label}</summary>
+          <div class="choices">${choices}</div>
+        </details>
+      `;
+    }
+
+    function stopItem(stop, index) {
+      const actions = stop.actions?.length
+        ? `<div class="actions">${stop.actions.map(linkButton).join("")}</div>`
+        : "";
+
+      return `
+        <li class="stop" style="--stop-color: ${colors[index % colors.length]}">
+          <time class="stop-time">${stop.time}</time>
+          <div class="stop-body">
+            <h3 class="stop-title">${stop.title}</h3>
+            ${stop.note ? `<p class="stop-note">${stop.note}</p>` : ""}
+            ${actions}
+            ${stop.picker ? lunchPicker(stop.picker) : ""}
+          </div>
+        </li>
+      `;
+    }
+
+    function renderDay(dayId, day) {
+      const panel = document.getElementById(dayId);
+      panel.innerHTML = `
+        <div class="day-header">
+          <div>
+            <h2>${day.title}</h2>
+            <p>${day.note}</p>
+          </div>
+          <button class="expand-btn" type="button" data-expand="${dayId}">Open picks</button>
+        </div>
+        <ol class="timeline">${day.stops.map(stopItem).join("")}</ol>
+      `;
+    }
+
+    function setActiveTab(tabId, shouldUpdateHash = true) {
+      tabPanels.forEach(panel => {
+        const isActive = panel.id === tabId;
+        panel.classList.toggle("active", isActive);
+        panel.toggleAttribute("hidden", !isActive);
+      });
+
+      tabButtons.forEach(button => {
+        const isActive = button.dataset.tab === tabId;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+        button.tabIndex = isActive ? 0 : -1;
+      });
+
+      if (shouldUpdateHash) {
+        history.replaceState(null, "", `#${tabId}`);
+      }
+    }
+
+    function togglePickers(dayId, button) {
+      const pickers = [...document.querySelectorAll(`#${dayId} details.picker`)];
+      const shouldOpen = pickers.some(picker => !picker.open);
+      pickers.forEach(picker => {
+        picker.open = shouldOpen;
+      });
+      button.textContent = shouldOpen ? "Close picks" : "Open picks";
+    }
+
+    Object.entries(itinerary).forEach(([dayId, day]) => renderDay(dayId, day));
+
+    document.querySelectorAll("[data-expand]").forEach(button => {
+      button.addEventListener("click", () => togglePickers(button.dataset.expand, button));
+    });
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => setActiveTab(button.dataset.tab));
+    });
+
+    document.querySelector(".tabs").addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+      const currentIndex = tabButtons.findIndex(button => button.classList.contains("active"));
+      const nextIndex = event.key === "ArrowRight"
+        ? (currentIndex + 1) % tabButtons.length
+        : (currentIndex - 1 + tabButtons.length) % tabButtons.length;
+      tabButtons[nextIndex].focus();
+      setActiveTab(tabButtons[nextIndex].dataset.tab);
+    });
+
+    const initialTab = location.hash.replace("#", "");
+    setActiveTab(itinerary[initialTab] ? initialTab : "day1", false);
+  </script>
+</body>
+</html>
